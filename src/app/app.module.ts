@@ -11,6 +11,7 @@ import { MenuPage } from '../pages/menu/menu';
 import { ContactPage } from '../pages/contact/contact';
 import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
+import { ReservationPage } from '../pages/reservation/reservation';
 
 
 
@@ -23,6 +24,7 @@ import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-htt
 import {baseURL} from '../providers/shared/baseurl';
 import { FevoriteProvider } from '../providers/fevorite/fevorite';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,7 +33,8 @@ import { FevoriteProvider } from '../providers/fevorite/fevorite';
     MenuPage,
     DishdetailPage,
     ContactPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage
     
 
   ],
@@ -48,7 +51,8 @@ import { FevoriteProvider } from '../providers/fevorite/fevorite';
     ContactPage,
     MenuPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage
     
   ],
   providers: [
