@@ -7,9 +7,16 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>dishdetail</ion-title>
-  </ion-navbar>
+    <ion-title>Dishdetail</ion-title>
 
+    <ion-buttons end>
+      <button ion-button (click)="openActionSheet()">
+      <ion-icon name="more"></ion-icon>
+    </button>
+    </ion-buttons>
+   
+  </ion-navbar>
+  
 </ion-header>
 
 
@@ -34,7 +41,7 @@
         <ion-col>
             <button ion-button icon-left clear small>
                 <ion-icon name="text"></ion-icon>
-                <div>{{ numcomments}}</div> Comments
+                <div>{{ dish.comments.length}}</div> Comments
             </button>
         </ion-col>
       </ion-row>

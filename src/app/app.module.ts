@@ -12,6 +12,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ReservationPage } from '../pages/reservation/reservation';
+import { CommentPage } from '../pages/comment/comment';
 
 
 
@@ -34,7 +35,8 @@ import { FevoriteProvider } from '../providers/fevorite/fevorite';
     DishdetailPage,
     ContactPage,
     FavoritesPage,
-    ReservationPage
+    ReservationPage,
+    CommentPage
     
 
   ],
@@ -52,7 +54,8 @@ import { FevoriteProvider } from '../providers/fevorite/fevorite';
     MenuPage,
     DishdetailPage,
     FavoritesPage,
-    ReservationPage
+    ReservationPage,
+    CommentPage
     
   ],
   providers: [
