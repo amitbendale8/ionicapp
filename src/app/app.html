@@ -13,6 +13,10 @@
       </ion-thumbnail>
       <h3>Restorante tummy</h3>
     </ion-list-header>
+    <button color="primary-pale" menuClose ion-item (click)="openLogin()">
+      <ion-icon name="log-in" item-left></ion-icon>
+      Login
+    </button>
     <ion-list>
       <button color="primary-pale" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon [name]="p.icon" item-left></ion-icon>
