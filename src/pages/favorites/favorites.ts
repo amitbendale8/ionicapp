@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,
           ItemSliding,ToastController,LoadingController,AlertController } from 'ionic-angular';
 import { FevoriteProvider} from '../../providers/fevorite/fevorite';
 import { Dish } from '../../providers/shared/dish';
+import { Storage}  from '@ionic/storage';
 /**
  * Generated class for the FavoritesPage page.
  *
@@ -23,6 +24,7 @@ export class FavoritesPage implements OnInit{
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private alertCtrl: AlertController,
+    private storage: Storage,
     @Inject('BaseURL') private BaseURL) {
   }
 
@@ -32,9 +34,18 @@ export class FavoritesPage implements OnInit{
 
   ngOnInit(){
     console.log("inside ngOnInit ");
-    this.favoriteProvider.getFavorites()
-      .subscribe(favorites => this.favorites = favorites,
+    this.storage.get('favorites').then(
+      favorites => {
+        if(favorites){
+          this.favorites = favorites
+        }else{
+          this.favoriteProvider.getFavorites()
+          .subscribe(favorites => this.favorites = favorites,
               errMess => this.errMess = errMess);
+        }
+      }
+    )
+    
   }
 
   deleteFavorite(item: ItemSliding, id: number){
@@ -64,6 +75,10 @@ export class FavoritesPage implements OnInit{
             });
         
             loading.present();
+            this.storage.remove('favorites');
+            if(this.favorites.length > 0){
+              this.storage.set('favorites',this.favorites.filter(e => e.id != id));
+            }
             this.favoriteProvider.deleteFavorite(id)
               .subscribe(favorites => { this.favorites = favorites;
                 loading.dismiss();
